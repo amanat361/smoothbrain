@@ -1,7 +1,13 @@
 // app/lobbies/[lobbyId]/page.tsx
-import { getLobby } from "@/app/actions";
+import { getLobby, joinLobby } from "@/app/actions";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Heading } from "@/components/catalyst/heading";
+import { Button } from "@/components/catalyst/button";
+import { ArrowDown } from "lucide-react";
+import { Divider } from "@/components/catalyst/divider";
+import { Link } from "@/components/catalyst/link";
+import { Input } from "@/components/catalyst/input";
+import { Field } from "@/components/catalyst/fieldset";
 
 export default async function LobbyPage({
   params,
@@ -16,15 +22,24 @@ export default async function LobbyPage({
   }
 
   return (
-    <div className="p-8">
-      <Link
-        href="/"
-        className="text-blue-500 hover:underline mb-4 inline-block"
-      >
+    <div className="p-8 flex flex-col gap-4">
+      <Link href="/" className="text-blue-500 hover:underline inline-block">
         ← Back to Lobbies
       </Link>
 
-      <h1 className="text-2xl font-bold mb-4">Lobby {lobbyId}</h1>
+      <div className="flex justify-between items-center">
+        <Heading level={1}>Lobby {lobbyId}</Heading>
+        <form className="flex gap-2" action={joinLobby}>
+          <input type="hidden" name="lobbyId" value={lobbyId} />
+          <Field>
+            <Input name="playerName" placeholder="Player Name" required/>
+          </Field>
+          <Button type="submit">
+            Join Lobby <ArrowDown className="w-4 h-4" />
+          </Button>
+        </form>
+      </div>
+      <Divider />
 
       <div className="bg-white shadow rounded-lg p-6">
         <div className="mb-4">

@@ -43,9 +43,11 @@ export async function getLobby(id: string): Promise<Lobby | null> {
 }
 
 export async function joinLobby(
-  lobbyId: string,
-  playerName: string
-): Promise<Player[]> {
+  formData: FormData
+) {
+
+  const lobbyId = formData.get('lobbyId') as string;
+  const playerName = formData.get('playerName') as string;
   const lobby = await getLobby(lobbyId);
   if (!lobby) throw new Error("Lobby not found");
 
@@ -67,5 +69,10 @@ export async function joinLobby(
     }
   );
 
-  return updatedPlayers;
+  revalidatePath(`/lobbies/${lobbyId}`);
+}
+
+export async function deleteLobby(lobbyId: string) {
+  await redis.del(`lobby:${lobbyId}`);
+  revalidatePath("/");
 }
