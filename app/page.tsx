@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import { Button } from "@/components/catalyst/button";
 
 export default function Home() {
   return (

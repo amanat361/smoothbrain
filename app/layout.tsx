@@ -23,6 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // if you want dark mode, all you need is this:
+    // <html className="dark" lang="en">
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
