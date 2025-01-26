@@ -1,15 +1,16 @@
-import { Button } from "@/components/catalyst/button";
-import { Heading } from "@/components/catalyst/heading";
+import HomeButton from "@/components/homepage/home-button";
+import HomeHeading from "@/components/homepage/home-heading";
+import { DynaPuff } from "next/font/google";
+
+const dynapuff = DynaPuff({ subsets: ['latin'] });
 
 export default function Home() {
   return (
     <main className="h-screen">
-      <header className="h-1/5 flex justify-center items-center">
-        <Heading className="">Smoothbrain</Heading>
-      </header>
-      <nav className="h-4/5 flex flex-col items-center justify-center">
-        <Button className="">Create Lobby!</Button>
-        <Button className="">Join Lobby!</Button>
+      <HomeHeading className={dynapuff.className}></HomeHeading>
+      <nav className="h-1/2 flex flex-col items-center justify-center">
+        <HomeButton className={`${dynapuff.className}`}>Create Lobby!</HomeButton>
+        <HomeButton className={`${dynapuff.className}`}>Join Lobby!</HomeButton>
       </nav>
     </main>
   );
