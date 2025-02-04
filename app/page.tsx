@@ -6,11 +6,11 @@ const dynapuff = DynaPuff({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className="h-screen">
-      <a href="/lobbies"><HomeHeading className={dynapuff.className}></HomeHeading></a>
+    <main className={`h-screen ${dynapuff.className}`}>
+      <a href="/lobbies"><HomeHeading></HomeHeading></a>
       <nav className="h-1/2 flex flex-col items-center justify-center">
-        <HomeButton className={`${dynapuff.className}`}>Create Lobby!</HomeButton>
-        <HomeButton className={`${dynapuff.className}`}>Join Lobby!</HomeButton>
+        <HomeButton>Create Lobby!</HomeButton>
+        <HomeButton>Join Lobby!</HomeButton>
       </nav>
     </main>
   );
