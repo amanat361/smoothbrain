@@ -13,6 +13,7 @@ export default function LobbyList() {
                 <Search></Search>
             </header>
             <ul className="flex flex-col gap-4 pt-25">
+                {/** Placeholder lobbies */}
                 <li className="flex justify-center"><Lobby capacity="9/10" code="JFO12DA8">Meloncab's Lobby</Lobby></li>
                 <li className="flex justify-center"><Lobby capacity="4/10" code="XDOC109N">Another Person's Lobby</Lobby></li>
                 <li className="flex justify-center"><Lobby capacity="9/10" code="JFO12DA8">Meloncab's Lobby</Lobby></li>
