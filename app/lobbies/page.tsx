@@ -9,7 +9,7 @@ export default function LobbyList() {
     return (
         <main className={`w-full ${dynapuff.className}`}>
             <header className="fixed flex items-center justify-between pl-10 pr-10 h-20 w-full bg-gray-300">
-                <Heading className="!text-4xl">Lobby List</Heading>
+                <Heading className="!text-2xl  md:!text-4xl">Lobby List</Heading>
                 <Search></Search>
             </header>
             <ul className="flex flex-col gap-4 pt-25">
