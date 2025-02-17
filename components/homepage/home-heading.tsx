@@ -8,7 +8,7 @@ interface HomeHeadingProps {
 export default function HomeHeading({ className }: HomeHeadingProps) {
     return (
         <header className="h-1/2 flex justify-center items-center">
-            <h1 className={`text-6xl md:text-8xl ${className}`}>
+            <h1 className={`max-[335px]:text-4xl text-5xl md:text-8xl ${className}`}>
                 Smoothbr
                 <Image
                     src={brain}
